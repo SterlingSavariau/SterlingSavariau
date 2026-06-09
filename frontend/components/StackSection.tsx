@@ -6,7 +6,7 @@ export function StackSection({ data }: { data: StrapiStackBlock | null }) {
   const images = data?.Image ?? [];
 
   return (
-    <section className="mb-16">
+    <section id="stack" aria-label="Technology stack">
       <SectionLabel>{data?.Title ?? "Stack"}</SectionLabel>
       {data?.Description && (
         <p className="text-sm text-muted-foreground leading-relaxed mb-4">
@@ -20,21 +20,20 @@ export function StackSection({ data }: { data: StrapiStackBlock | null }) {
             return (
               <div
                 key={img.url}
-                className="relative group w-10 h-10 rounded-xl overflow-visible flex items-center justify-center"
+                className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white/5 dark:bg-white hover:opacity-80 transition-opacity"
               >
-                <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center dark:bg-white group-hover:opacity-80 transition-opacity">
-                  {src && (
-                    <img
-                      src={src}
-                      alt={img.alternativeText ?? ""}
-                      className="w-full h-full object-contain"
-                    />
-                  )}
-                </div>
-                {img.alternativeText && (
-                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-background border border-border text-foreground text-[10px] px-1.5 py-0.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                    {img.alternativeText}
-                  </div>
+                {src ? (
+                  <img
+                    src={src}
+                    alt={img.alternativeText ?? ""}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  img.alternativeText && (
+                    <span className="text-[9px] text-muted-foreground text-center leading-tight px-1">
+                      {img.alternativeText}
+                    </span>
+                  )
                 )}
               </div>
             );

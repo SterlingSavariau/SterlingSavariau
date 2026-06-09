@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { getGlobal } from "@/data/loaders";
+import { LiveClock } from "./client/LiveClock";
 import { ModeToggle } from "./client/ModeToggle";
 
 export async function Navbar() {
   const global = await getGlobal();
 
-  const title = global?.Title ?? null;
   const navLinks =
     global?.NavBar?.Navigation?.Link?.map((item) => ({
       label: (item.Text ?? "").toUpperCase(),
@@ -13,24 +13,25 @@ export async function Navbar() {
     })) ?? [];
 
   return (
-    <nav className="flex justify-between items-center pt-8 pb-12">
-      {title && (
-        <Link href="/" className="text-xs text-muted-foreground tracking-widest font-medium hover:text-foreground transition-colors">
-          {title.toUpperCase()}
-        </Link>
-      )}
-      <div className="flex items-center gap-6">
+    <header className="w-full flex items-center justify-between py-5">
+      <Link href="/" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200">
+        Est. 1992
+      </Link>
+      <nav className="flex items-center gap-6" aria-label="Primary navigation">
         {navLinks.map(({ label, href }) => (
           <Link
             key={label}
             href={href}
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+            className="font-mono text-[10px] tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             {label}
           </Link>
         ))}
+      </nav>
+      <div className="hidden md:flex items-center gap-3">
+        <LiveClock />
         <ModeToggle />
       </div>
-    </nav>
+    </header>
   );
 }

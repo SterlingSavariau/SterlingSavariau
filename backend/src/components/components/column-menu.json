@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_components_column_menus",
+  "info": {
+    "displayName": "ColumnMenu"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    }
+  }
+}

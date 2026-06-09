@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layouts_personals",
+  "info": {
+    "displayName": "Personal"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Personal": {
+      "type": "component",
+      "component": "contents.personal-content",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

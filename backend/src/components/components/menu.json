@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_components_menus",
+  "info": {
+    "displayName": "Menu"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "isDropdown": {
+      "type": "boolean",
+      "default": false
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "MenuLink": {
+      "displayName": "MenuLink",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.menu-link"
+    }
+  }
+}

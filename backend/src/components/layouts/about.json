@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_layouts_abouts",
+  "info": {
+    "displayName": "About"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "RichText": {
+      "type": "component",
+      "component": "components.rich-text",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

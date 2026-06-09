@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layouts_projects",
+  "info": {
+    "displayName": "Project"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Project": {
+      "type": "component",
+      "component": "contents.project-content",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layouts_experiences",
+  "info": {
+    "displayName": "Experience"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

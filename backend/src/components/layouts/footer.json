@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layouts_footers",
+  "info": {
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "LogoText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.logo-text"
+    },
+    "Social": {
+      "displayName": "Social",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.social"
+    },
+    "Menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.column-menu"
+    }
+  }
+}

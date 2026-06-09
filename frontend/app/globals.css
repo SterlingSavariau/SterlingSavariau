@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b;
+  --primary: #0a0a0a;
+  --border: #e4e4e7;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #1a1a1a;
+  --muted-foreground: #888;
+  --primary: #ededed;
+  --border: #2a2a2a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* ---- RichText ---- */
+
+.richtext { color: var(--foreground); }
+.richtext :where(p, ul, ol, pre, table, blockquote) { text-align: left; }
+
+.richtext h1, .richtext h2, .richtext h3,
+.richtext h4, .richtext h5, .richtext h6 {
+  @apply font-bold leading-tight tracking-tight;
+  color: var(--foreground);
+}
+.richtext h1 { @apply text-4xl sm:text-5xl mt-6 mb-4; }
+.richtext h2 { @apply text-3xl sm:text-4xl mt-10 mb-3; }
+.richtext h3 { @apply text-2xl sm:text-3xl mt-8 mb-2; }
+.richtext h4 { @apply text-xl sm:text-2xl mt-6 mb-2; }
+.richtext h5 { @apply text-lg mt-4 mb-2; }
+.richtext h6 { @apply text-base mt-3 mb-2; }
+
+.richtext p {
+  @apply text-base sm:text-lg leading-7 sm:leading-8;
+  color: var(--muted-foreground);
+  margin-block: 0.75rem 1rem;
+}
+
+.richtext a {
+  color: var(--primary);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+}
+.richtext a:hover { text-decoration: underline; }
+
+.richtext ul, .richtext ol { @apply my-4 pl-6 sm:pl-8; }
+.richtext ul { list-style: disc; }
+.richtext ol { list-style: decimal; }
+.richtext li { @apply my-1 leading-7 sm:leading-8; color: var(--muted-foreground); }
+
+.richtext blockquote {
+  @apply my-6 rounded-lg border-l-4 p-4 italic;
+  border-color: var(--border);
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+.richtext code {
+  @apply rounded px-1.5 py-0.5 text-sm;
+  background: var(--muted);
+  color: var(--foreground);
+}
+.richtext pre {
+  @apply my-6 overflow-x-auto rounded-lg p-4 text-sm leading-7;
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+.richtext table { @apply w-full text-left text-sm sm:text-base my-6 border-collapse; }
+.richtext thead th {
+  @apply border-b font-semibold p-2;
+  border-color: var(--border);
+  color: var(--foreground);
+}
+.richtext tbody td { @apply p-2 align-top; border-bottom: 1px solid var(--border); }
+.richtext tbody tr:nth-child(even) { background: var(--muted); }
+
+.richtext hr { @apply my-8 border-t; border-color: var(--border); }
+
+.richtext img, .richtext video, .richtext iframe {
+  @apply block my-6 mx-auto max-w-full h-auto rounded-lg;
+}
+
+/* Work entry compact richtext */
+.work-richtext .richtext p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-block: 0 0.375rem;
+}
+.work-richtext .richtext ul,
+.work-richtext .richtext ol {
+  @apply my-0 pl-0;
+  font-size: 0.875rem;
+  list-style: none;
+}
+.work-richtext .richtext li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-block: 0 0.25rem;
+}
+.work-richtext .richtext li::before {
+  content: "- ";
+}

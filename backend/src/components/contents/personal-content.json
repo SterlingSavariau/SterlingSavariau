@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_contents_personal_contents",
+  "info": {
+    "displayName": "PersonalContent"
+  },
+  "options": {},
+  "attributes": {
+    "Embed": {
+      "type": "component",
+      "component": "components.short-text",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

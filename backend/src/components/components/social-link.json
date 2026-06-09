@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_components_social_links",
+  "info": {
+    "displayName": "SocialLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": true
+    },
+    "Icon": {
+      "type": "enumeration",
+      "enum": [
+        "DISCORD_ICON",
+        "FACEBOOK_ICON",
+        "GITHUB_ICON",
+        "INSTAGRAM_ICON",
+        "MEDIUM_ICON",
+        "TELEGRAM_ICON",
+        "X_ICON"
+      ]
+    }
+  }
+}

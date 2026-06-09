@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layouts_writings",
+  "info": {
+    "displayName": "Writing"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

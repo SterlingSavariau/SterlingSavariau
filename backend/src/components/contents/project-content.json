@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_contents_project_contents",
+  "info": {
+    "displayName": "ProjectContent"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "Link": {
+      "type": "component",
+      "component": "components.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_menu_links",
+  "info": {
+    "displayName": "MenuLink"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

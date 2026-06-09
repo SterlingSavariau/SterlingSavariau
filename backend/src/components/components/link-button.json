@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_link_buttons",
+  "info": {
+    "displayName": "LinkButton"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "Variant": {
+      "type": "enumeration",
+      "enum": [
+        "Primary",
+        "Secondary",
+        "Outline",
+        "Ghost"
+      ]
+    }
+  }
+}

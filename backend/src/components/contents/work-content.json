@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_contents_work_contents",
+  "info": {
+    "displayName": "WorkContent"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "StartDate": {
+      "type": "date"
+    },
+    "EndDate": {
+      "type": "date"
+    },
+    "Position": {
+      "type": "enumeration",
+      "enum": [
+        "FullTime",
+        "PartTime",
+        "Contract",
+        "Internship"
+      ]
+    },
+    "Featured": {
+      "type": "boolean"
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Link": {
+      "type": "component",
+      "component": "components.link",
+      "repeatable": false
+    },
+    "RichText": {
+      "type": "component",
+      "component": "components.rich-text",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

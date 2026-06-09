@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layouts_stacks",
+  "info": {
+    "displayName": "Stack"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "component",
+      "component": "components.image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

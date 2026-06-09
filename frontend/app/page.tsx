@@ -27,7 +27,7 @@ function BlockRenderer({ block }: { block: HomeBlock }) {
 
 export default async function Home() {
   const homepage = await getHomepage();
-  const blocks = (homepage?.Blocks ?? []) as HomeBlock[];
+  const blocks = (homepage?.Blocks ?? []) as unknown as HomeBlock[];
 
   return (
     <div className="w-full max-w-[520px] mx-auto px-5">

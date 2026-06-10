@@ -21,10 +21,22 @@ function FanCard({ item, position }: { item: StrapiProjectContent | null; positi
   const videoRef = useRef<HTMLVideoElement>(null);
   const mediaUrl = getStrapiMedia(item?.Media?.url ?? null);
   const isVideo = item?.Media?.mime?.startsWith("video/") ?? false;
+  const href = item?.Link?.Url ?? null;
+  const isExternal = item?.Link?.isExternal ?? false;
+
+  function handleClick() {
+    if (!href) return;
+    if (isExternal) {
+      window.open(href, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = href;
+    }
+  }
 
   return (
     <div
       className="absolute top-0 w-full h-full overflow-hidden cursor-pointer rounded-xl"
+      onClick={handleClick}
       style={{
         left: LEFT_OFFSET[position],
         zIndex: hovered ? 400 : DEFAULT_Z[position],
@@ -110,13 +122,13 @@ function MobileCard({ item }: { item: StrapiProjectContent }) {
               loop
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover pointer-events-none"
             />
           ) : (
             <img
               src={mediaUrl}
               alt={item.Media?.alternativeText ?? ""}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover pointer-events-none"
             />
           )}
         </div>

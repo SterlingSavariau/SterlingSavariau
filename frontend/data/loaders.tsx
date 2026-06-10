@@ -9,7 +9,7 @@ const baseUrl = getStrapiURL();
 
 async function fetchData(url: string, tags?: string[]) {
   try {
-    const options: RequestInit = tags ? { next: { tags } } : {};
+    const options: RequestInit = { cache: 'no-store', ...(tags ? { next: { tags } } : {}) };
     const response = await fetch(url, options);
     if (!response.ok) return null;
     const data = await response.json();
@@ -45,8 +45,8 @@ export async function getAbout(): Promise<StrapiAbout | null> {
 
 export async function getBlogPosts(limit?: number): Promise<StrapiBlogPost[]> {
   const params = limit
-    ? `sort=publishedAt:desc&pagination[limit]=${limit}`
-    : "sort=publishedAt:desc";
+    ? `sort[0]=createdAt:desc&pagination[limit]=${limit}`
+    : "sort[0]=createdAt:desc";
   const url = new URL(`/api/blogs?${params}`, baseUrl);
   const data = await fetchData(url.href, ["blogs"]);
   return (data?.data ?? []) as StrapiBlogPost[];

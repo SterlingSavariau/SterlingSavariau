@@ -13,7 +13,7 @@ export async function Navbar() {
     })) ?? [];
 
   return (
-    <header className="w-full flex items-center justify-between py-5">
+    <header className="w-full flex items-center justify-between py-5 border-b border-border mb-8">
       <Link href="/" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200">
         Est. 1992
       </Link>

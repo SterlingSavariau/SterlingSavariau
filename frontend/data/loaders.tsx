@@ -4,6 +4,7 @@ import type { StrapiHomepage } from "@/components/types/homepage";
 import type { StrapiWork } from "@/components/types/work";
 import type { StrapiAbout } from "@/components/types/about";
 import type { StrapiBlogPost } from "@/components/types/blog";
+import type { StrapiConnect } from "@/components/types/connect";
 
 const baseUrl = getStrapiURL();
 
@@ -60,4 +61,10 @@ export async function getBlogPost(slug: string): Promise<StrapiBlogPost | null> 
   const data = await fetchData(url.href, ["blogs"]);
   const posts = data?.data ?? [];
   return (posts[0] ?? null) as StrapiBlogPost | null;
+}
+
+export async function getConnect(): Promise<StrapiConnect | null> {
+  const url = new URL("/api/connect?populate=Social", baseUrl);
+  const data = await fetchData(url.href, ["connect"]);
+  return (data?.data ?? null) as StrapiConnect | null;
 }

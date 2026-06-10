@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getBlogPosts } from "@/data/loaders";
+import type { StrapiWritingBlock } from "@/components/types/homepage";
 
 function formatDate(iso: string): string {
   const d = new Date(iso);
@@ -10,13 +11,8 @@ function formatDate(iso: string): string {
   return `${mm}/${dd}/${yy}`;
 }
 
-function estimateReadTime(text: string | null): string {
-  if (!text) return "1 min";
-  const words = text.trim().split(/\s+/).length;
-  return `${Math.max(1, Math.ceil(words / 200))} min`;
-}
 
-export async function WritingSection({ data: _ }: { data: unknown }) {
+export async function WritingSection({ data }: { data: StrapiWritingBlock | null }) {
   const posts = await getBlogPosts(5);
   if (posts.length === 0) return null;
 
@@ -24,7 +20,7 @@ export async function WritingSection({ data: _ }: { data: unknown }) {
     <section id="thoughts" className="mb-16" aria-label="Writing">
       <div className="section-divider" />
       <div className="flex items-center justify-between mb-5">
-        <p className="section-label">Writing</p>
+        <p className="section-label">{data?.Title}</p>
         <Link
           href="/blog"
           className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
@@ -54,9 +50,6 @@ export async function WritingSection({ data: _ }: { data: unknown }) {
                   {post.Description}
                 </p>
               )}
-              <span className="inline-block mt-1.5 font-mono text-[10px] tracking-widest text-muted-foreground/50">
-                {estimateReadTime(post.Description)} read
-              </span>
             </div>
             <ArrowUpRight
               size={12}

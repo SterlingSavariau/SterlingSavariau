@@ -6,7 +6,8 @@ export function StackSection({ data }: { data: StrapiStackBlock | null }) {
   const images = data?.Image ?? [];
 
   return (
-    <section id="stack" aria-label="Technology stack">
+    <section id="stack" className="mb-10" aria-label="Technology stack">
+      <div className="section-divider" />
       <SectionLabel>{data?.Title ?? "Stack"}</SectionLabel>
       {data?.Description && (
         <p className="text-sm text-muted-foreground leading-relaxed mb-4">

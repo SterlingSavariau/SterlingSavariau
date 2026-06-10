@@ -10,6 +10,7 @@ export function PersonalSection({ data }: { data: StrapiPersonalBlock | null }) 
 
   return (
     <section className="mb-16">
+      <div className="section-divider" />
       <SectionLabel>{data?.Title ?? "Personal"}</SectionLabel>
       {data?.Description && (
         <p className="text-sm text-muted-foreground leading-relaxed mb-6">

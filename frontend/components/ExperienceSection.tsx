@@ -3,6 +3,7 @@ import { SectionLabel } from "./SectionLabel";
 import { RichTextBlock } from "./blocks/RichTextBlock";
 import { getWork } from "@/data/loaders";
 import type { StrapiWorkContent } from "@/components/types/work";
+import type { StrapiExperienceBlock } from "@/components/types/homepage";
 
 function formatDateLabel(item: StrapiWorkContent): string {
   if (item.Position === "Contract") return "Contract";
@@ -14,14 +15,15 @@ function formatDateLabel(item: StrapiWorkContent): string {
   return `${startYear} — ${endYear}`;
 }
 
-export async function ExperienceSection({ data: _ }: { data: unknown }) {
+export async function ExperienceSection({ data }: { data: StrapiExperienceBlock | null }) {
   const strapiWork = await getWork();
   const work: StrapiWorkContent[] = strapiWork?.Work.filter((w) => w.Featured) ?? [];
   if (work.length === 0) return null;
 
   return (
     <section id="experience" className="mb-16" aria-label="Work experience">
-      <SectionLabel>Experience</SectionLabel>
+      <div className="section-divider" />
+      <SectionLabel>{data?.Title}</SectionLabel>
 
       <div className="flex flex-col gap-10">
         {work.map((item) => (

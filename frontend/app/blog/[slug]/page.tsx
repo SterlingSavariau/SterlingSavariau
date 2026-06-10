@@ -40,7 +40,7 @@ export default async function BlogPostPage({
   const otherPosts = allPosts.filter((p) => p.Slug !== post.Slug).slice(0, 5);
 
   return (
-    <div className="w-full max-w-[520px] mx-auto px-5">
+    <div className="w-full max-w-[680px] mx-auto px-5">
       <Navbar />
       <section>
         <Link

@@ -19,7 +19,7 @@ export function HeroSection({ data }: { data: StrapiAboutBlock | null }) {
   }));
 
   return (
-    <section id="about" className="mb-20">
+    <section id="about" className="pt-10 mb-20">
       <AvatarStack images={images} initials={initials} />
 
       {title && (

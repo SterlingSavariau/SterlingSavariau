@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { SectionLabel } from "@/components/SectionLabel";
 import { RichTextBlock } from "@/components/blocks/RichTextBlock";
 import { getAbout } from "@/data/loaders";
 
@@ -10,18 +11,17 @@ export default async function AboutPage() {
   ) ?? [];
 
   return (
-    <div className="w-full max-w-[520px] mx-auto px-5">
+    <div className="w-full max-w-[680px] mx-auto px-5">
       <Navbar />
-      <section>
-        {about?.Title && (
-          <p className="text-xs text-muted-foreground tracking-widest uppercase mb-4">
-            {about.Title}
-          </p>
-        )}
+      <section className="pt-8">
+        {about?.Title && <SectionLabel>{about.Title}</SectionLabel>}
         {about?.Description && (
-          <p className="text-sm text-muted-foreground leading-relaxed mb-10">
-            {about.Description}
-          </p>
+          <>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              {about.Description}
+            </p>
+            <div className="section-divider" />
+          </>
         )}
         <div className="space-y-0">
           {richTextBlocks.map((block) => (

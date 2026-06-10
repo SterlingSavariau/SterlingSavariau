@@ -23,14 +23,17 @@ export default async function WorkPage() {
   const work = await getWork();
 
   return (
-    <div className="w-full max-w-[520px] mx-auto px-5">
+    <div className="w-full max-w-[680px] mx-auto px-5">
       <Navbar />
-      <section className="mb-16">
-        <SectionLabel>Work</SectionLabel>
+      <section className="pt-8 mb-16">
+        <SectionLabel>{work?.Title}</SectionLabel>
         {work?.Description && (
-          <p className="text-sm text-muted-foreground mb-10 leading-relaxed">
-            {work.Description}
-          </p>
+          <>
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              {work.Description}
+            </p>
+            <div className="section-divider" />
+          </>
         )}
 
         <div className="flex flex-col gap-8">

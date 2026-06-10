@@ -30,7 +30,7 @@ export default async function Home() {
   const blocks = (homepage?.Blocks ?? []) as unknown as HomeBlock[];
 
   return (
-    <div className="w-full max-w-[520px] mx-auto px-5">
+    <div className="w-full max-w-[680px] mx-auto px-5">
       <Navbar />
       {blocks.map((block) => (
         <BlockRenderer key={block.id} block={block} />

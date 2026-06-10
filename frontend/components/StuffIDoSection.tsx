@@ -7,6 +7,7 @@ export function StuffIDoSection({ data }: { data: StrapiProjectBlock | null }) {
 
   return (
     <section className="mb-16">
+      <div className="section-divider" />
       <SectionLabel>{data?.Title ?? "Stuff I Do"}</SectionLabel>
       {data?.Description && (
         <p className="text-sm text-muted-foreground leading-relaxed">

@@ -1,5 +1,7 @@
 import { Navbar } from "@/components/Navbar";
-import { getBlogPosts } from "@/data/loaders";
+import { SectionLabel } from "@/components/SectionLabel";
+import { getBlogPosts, getHomepage } from "@/data/loaders";
+import type { StrapiWritingBlock } from "@/components/types/homepage";
 import Link from "next/link";
 
 function formatDate(iso: string): string {
@@ -11,15 +13,16 @@ function formatDate(iso: string): string {
 }
 
 export default async function BlogPage() {
-  const posts = await getBlogPosts();
+  const [posts, homepage] = await Promise.all([getBlogPosts(), getHomepage()]);
+  const writingBlock = homepage?.Blocks.find(
+    (b): b is StrapiWritingBlock => b.__component === "layouts.writing"
+  );
 
   return (
-    <div className="w-full max-w-[520px] mx-auto px-5">
+    <div className="w-full max-w-[680px] mx-auto px-5">
       <Navbar />
-      <section>
-        <p className="text-xs text-muted-foreground tracking-widest uppercase mb-6">
-          Writing
-        </p>
+      <section className="pt-8">
+        <SectionLabel>{writingBlock?.Title}</SectionLabel>
         <div className="flex flex-col">
           {posts.map((post) => (
             <Link

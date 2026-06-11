@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getGlobal } from "@/data/loaders";
 import { LiveClock } from "./client/LiveClock";
 import { ModeToggle } from "./client/ModeToggle";
+import { NavbarScroll } from "./client/NavbarScroll";
 
 export async function Navbar() {
   const global = await getGlobal();
@@ -13,7 +14,7 @@ export async function Navbar() {
     })) ?? [];
 
   return (
-    <header className="w-full flex items-center justify-between py-8 border-b border-border">
+    <NavbarScroll>
       <Link href="/" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-200">
         Est. 1992
       </Link>
@@ -32,6 +33,6 @@ export async function Navbar() {
         <LiveClock />
         <ModeToggle />
       </div>
-    </header>
+    </NavbarScroll>
   );
 }

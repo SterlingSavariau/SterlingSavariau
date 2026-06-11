@@ -45,11 +45,6 @@ export async function WritingSection({ data }: { data: StrapiWritingBlock | null
               <p className="text-sm font-medium text-foreground mb-1 group-hover:underline underline-offset-4">
                 {post.Title}
               </p>
-              {post.Description && (
-                <p className="text-[12px] leading-relaxed text-muted-foreground">
-                  {post.Description}
-                </p>
-              )}
             </div>
             <ArrowUpRight
               size={12}

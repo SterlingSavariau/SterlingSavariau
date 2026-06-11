@@ -1,4 +1,5 @@
 import { LiveClock } from "./client/LiveClock";
+import { ModeToggle } from "./client/ModeToggle";
 
 export async function Footer() {
   return (
@@ -24,7 +25,10 @@ export async function Footer() {
         <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground/50">
           Est. 1992
         </span>
-        <LiveClock />
+        <div className="flex items-center gap-3">
+          <LiveClock />
+          <ModeToggle />
+        </div>
       </div>
     </footer>
   );

@@ -60,7 +60,16 @@ export default async function BlogPostPage({
           {post.Title}
         </h1>
 
-        <div className="space-y-0">
+        {post.Description && (
+          <>
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              {post.Description}
+            </p>
+            <div className="section-divider" />
+          </>
+        )}
+
+        <div className="space-y-0 mt-8">
           {richBlocks.map((block) => (
             <RichTextBlock key={block.id} data={{ RichText: block.RichText }} />
           ))}

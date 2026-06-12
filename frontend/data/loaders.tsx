@@ -63,6 +63,12 @@ export async function getBlogPost(slug: string): Promise<StrapiBlogPost | null> 
   return (posts[0] ?? null) as StrapiBlogPost | null;
 }
 
+export async function getGlobalMetadata(): Promise<StrapiGlobal | null> {
+  const url = new URL("/api/global?populate[Icon]=true&populate[Logo]=true", baseUrl);
+  const data = await fetchData(url.href, ["global"]);
+  return (data?.data ?? null) as StrapiGlobal | null;
+}
+
 export async function getConnect(): Promise<StrapiConnect | null> {
   const url = new URL("/api/connect?populate=Social", baseUrl);
   const data = await fetchData(url.href, ["connect"]);

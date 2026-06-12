@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { getGlobalMetadata } from "@/data/loaders";
+import { generateSharedMetadata } from "@/components/custom/generateSharedMetadata";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,10 +17,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Your Name",
-  description: "Engineer / Designer — building things on the internet.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const global = await getGlobalMetadata();
+  return generateSharedMetadata({
+    type: 'home',
+    title: global?.Title || 'Sterling Savariau',
+    description: global?.Description || 'Engineer / Designer — building things on the internet.',
+    thumbnailUrl: global?.Icon?.url || global?.Logo?.url || '',
+    thumbnailAlt: global?.Title || 'Sterling Savariau',
+  });
+}
 
 export default function RootLayout({
   children,

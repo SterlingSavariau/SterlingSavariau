@@ -2,6 +2,10 @@ export function getStrapiURL() {
   return process.env.STRAPI_URL ?? "http://localhost:1337";
 }
 
+export function getPublicURL() {
+  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+}
+
 export function getStrapiMedia(url: string | null) {
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
